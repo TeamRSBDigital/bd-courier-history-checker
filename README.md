@@ -120,11 +120,25 @@ Never commit real values. `.env*` is ignored except `.env.example`.
 
 ## Generate admin credentials
 
+The easiest production setup is:
+
+```bash
+npm run admin:env
+```
+
+That command generates a random admin password, PBKDF2 salt/hash, `ADMIN_SESSION_SECRET`, and `PHONE_HMAC_SECRET`, then prints a Vercel-ready environment block. Keep the output private and do **not** commit it to GitHub. You can optionally choose a username/password and production URL:
+
+```bash
+node scripts/generate-admin-env.mjs "myadmin" "a-long-unique-password" "https://your-domain.example"
+```
+
+The older focused password-hash helper remains available:
+
 ```bash
 node scripts/hash-admin-password.mjs "use-a-long-unique-password"
 ```
 
-Copy the printed `ADMIN_PASSWORD_SALT` and `ADMIN_PASSWORD_HASH` to the correct Vercel environment scope. Create `ADMIN_SESSION_SECRET` separately with a cryptographically random secret.
+Production admin login also requires `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` because login attempts are protected by the shared serverless rate limiter.
 
 ## Steadfast Setup
 

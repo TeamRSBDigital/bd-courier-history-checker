@@ -1,6 +1,6 @@
 {
   "name": "bd-courier-history-checker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Vercel-first Bangladesh courier customer delivery history checker",
   "engines": {
@@ -12,7 +12,8 @@
     "typecheck": "tsc --noEmit",
     "test": "node scripts/test-runner.mjs",
     "build": "node scripts/build-check.mjs",
-    "repo:check": "node scripts/repo-check.mjs"
+    "repo:check": "node scripts/repo-check.mjs",
+    "admin:env": "node scripts/generate-admin-env.mjs"
   },
   "type": "module",
   "devDependencies": {
