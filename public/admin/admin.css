@@ -1,0 +1,14 @@
+.admin-body { min-height: 100vh; }
+.admin-shell { padding: 60px 0 90px; }
+.admin-card { width: min(460px, 100%); margin: 40px auto; padding: 28px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); box-shadow: var(--shadow); }
+.admin-card h1, #dashboard-panel h1 { margin: 0; letter-spacing: -.04em; }
+.admin-input { border: 1px solid #cfd8e3; border-radius: 10px; margin-bottom: 14px; background: #fff; }
+.admin-input:focus { border-color: var(--brand); outline: 3px solid rgba(15,111,100,.1); }
+.admin-section { margin-top: 42px; }
+.admin-section h2 { font-size: 18px; }
+.admin-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+.admin-item { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; overflow-wrap: anywhere; }
+.admin-item p { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
+.admin-item strong { font-size: 15px; }
+@media (max-width: 800px) { .admin-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 480px) { .admin-grid { grid-template-columns: 1fr; } }

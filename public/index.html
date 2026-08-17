@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="robots" content="index,follow">
+  <title>CourierCheck BD — Customer Delivery History</title>
+  <meta name="description" content="Check available customer delivery history across supported Bangladesh courier services before processing an order.">
+  <meta property="og:title" content="CourierCheck BD — Customer Delivery History">
+  <meta property="og:description" content="Review available delivery success and return history across supported Bangladesh courier services.">
+  <meta property="og:type" content="website">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="/" aria-label="CourierCheck BD home">
+        <span class="brand-mark" aria-hidden="true">C</span>
+        <span>CourierCheck <strong>BD</strong></span>
+      </a>
+      <a class="nav-link" href="#how-it-works">How it works</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">DELIVERY DECISION SUPPORT</p>
+        <h1>Check Customer<br><span>Delivery History</span></h1>
+        <p class="hero-text">Check available delivery history across major Bangladesh courier services before processing an order.</p>
+        <div class="trust-row" aria-label="Privacy and security highlights">
+          <span>Server-side checks</span><span>No phone numbers in URLs</span><span>Privacy-first</span>
+        </div>
+      </div>
+
+      <section class="checker-card" aria-labelledby="checker-title">
+        <div class="card-heading">
+          <div>
+            <p class="mini-label">CUSTOMER LOOKUP</p>
+            <h2 id="checker-title">Check a mobile number</h2>
+          </div>
+          <span class="secure-pill">Secure</span>
+        </div>
+        <form id="checker-form" novalidate>
+          <label for="phone">Bangladeshi mobile number</label>
+          <div class="phone-input-wrap">
+            <span class="country-code" aria-hidden="true">+880</span>
+            <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="17XXXXXXXX" maxlength="16" aria-describedby="phone-help phone-error">
+          </div>
+          <p id="phone-help" class="field-help">Accepts 17XXXXXXXX, 017XXXXXXXX, 88017XXXXXXXX or +88017XXXXXXXX</p>
+          <p id="phone-error" class="field-error" role="alert" aria-live="polite"></p>
+          <button id="check-button" class="primary-button" type="submit">Check now <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="privacy-note">Your lookup is sent only to this application's server and configured courier providers. The full number is not placed in the URL.</p>
+      </section>
+    </section>
+
+    <section class="courier-strip" aria-labelledby="supported-title">
+      <div class="shell">
+        <p id="supported-title" class="strip-label">SUPPORTED COURIERS</p>
+        <div class="courier-logos">
+          <span>Steadfast</span><span>Pathao</span><span>REDX</span><span>CarryBee</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="status-section" class="status-section shell hidden" aria-live="polite">
+      <div class="section-heading">
+        <div><p class="eyebrow">LIVE STATUS</p><h2>Checking courier networks</h2></div>
+        <span id="overall-status" class="status-badge">In progress</span>
+      </div>
+      <div id="progress-grid" class="progress-grid"></div>
+    </section>
+
+    <section id="results-section" class="results-section shell hidden" aria-live="polite">
+      <div class="section-heading">
+        <div><p class="eyebrow">RESULT SUMMARY</p><h2>Customer delivery history</h2><p id="masked-number" class="subtle"></p></div>
+        <button id="new-check" class="secondary-button" type="button">New check</button>
+      </div>
+      <div class="summary-grid">
+        <article class="metric-card metric-featured"><p>Delivery success</p><strong id="metric-success">—</strong><span>Across reporting couriers</span></article>
+        <article class="metric-card"><p>Total orders</p><strong id="metric-total">—</strong><span>Compatible records</span></article>
+        <article class="metric-card"><p>Delivered</p><strong id="metric-delivered">—</strong><span>Successful deliveries</span></article>
+        <article class="metric-card"><p>Returned / cancelled</p><strong id="metric-returned">—</strong><span>Combined unsuccessful</span></article>
+        <article class="metric-card"><p>Risk indicator</p><strong id="metric-risk" class="risk-text">—</strong><span id="metric-reporting">No data yet</span></article>
+      </div>
+      <div id="result-message" class="notice hidden" role="status"></div>
+      <h3 class="courier-results-title">Courier breakdown</h3>
+      <div id="courier-results" class="courier-result-grid"></div>
+      <div class="disclaimer-box"><strong>Important</strong><p id="result-disclaimer">Courier history is a decision-support signal and is not proof of fraudulent activity.</p></div>
+    </section>
+
+    <section id="how-it-works" class="how shell">
+      <div class="section-heading compact"><div><p class="eyebrow">HOW IT WORKS</p><h2>One lookup, isolated providers</h2></div></div>
+      <div class="steps">
+        <article><span>01</span><h3>Validate</h3><p>The number is normalized and validated on both client and server before any courier request.</p></article>
+        <article><span>02</span><h3>Check in parallel</h3><p>Configured courier providers are queried independently with strict timeouts and failure isolation.</p></article>
+        <article><span>03</span><h3>Review signals</h3><p>Compatible delivery records are aggregated into transparent success and risk indicators.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-wrap"><p>CourierCheck BD</p><p>Decision-support only · Do not treat courier history as proof of fraud.</p></div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,12 @@
+import { access, readFile, readdir } from 'node:fs/promises';
+import { join } from 'node:path';
+const root = new URL('../', import.meta.url).pathname;
+const required = ['public/index.html','package-lock.json','public/styles.css','public/app.js','public/admin/index.html','public/admin/admin.js','api/check.ts','api/health.ts','api/ready.ts','.env.example','.gitignore','README.md','TODO.md','vercel.json','.vercelignore'];
+for (const file of required) await access(join(root, file));
+const envExample = await readFile(join(root, '.env.example'), 'utf8');
+if (!envExample.includes('UPSTASH_REDIS_REST_URL=') || !envExample.includes('STEADFAST_API_KEY=')) throw new Error('.env.example is incomplete');
+const gitignore = await readFile(join(root, '.gitignore'), 'utf8');
+if (!gitignore.includes('!.env.example')) throw new Error('.env.example must remain committable');
+const rootEntries = await readdir(root);
+for (const name of rootEntries) if (/\.(bak|tmp|log)$/i.test(name)) throw new Error(`Temporary file in repository root: ${name}`);
+console.log('Production repository build checks passed.');

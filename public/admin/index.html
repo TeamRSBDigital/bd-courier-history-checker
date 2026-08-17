@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Admin — CourierCheck BD</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/admin/admin.css">
+  <script src="/admin/admin.js" defer></script>
+</head>
+<body class="admin-body">
+  <header class="site-header"><div class="shell nav-wrap"><a class="brand" href="/"><span class="brand-mark">C</span><span>CourierCheck <strong>BD</strong></span></a><span class="nav-link">Admin</span></div></header>
+  <main class="admin-shell shell">
+    <section id="login-panel" class="admin-card">
+      <p class="eyebrow">SECURE ADMIN</p>
+      <h1>Sign in</h1>
+      <p class="subtle">Administrative diagnostics and aggregate operational metrics.</p>
+      <form id="login-form" novalidate>
+        <label for="username">Username</label><input class="admin-input" id="username" autocomplete="username" required>
+        <label for="password">Password</label><input class="admin-input" id="password" type="password" autocomplete="current-password" required>
+        <p id="login-error" class="field-error" role="alert"></p>
+        <button class="primary-button" type="submit">Sign in</button>
+      </form>
+    </section>
+
+    <section id="dashboard-panel" class="hidden">
+      <div class="section-heading"><div><p class="eyebrow">ADMIN DASHBOARD</p><h1>System overview</h1><p id="generated-at" class="subtle"></p></div><button id="logout" class="secondary-button" type="button">Sign out</button></div>
+      <div class="admin-section"><h2>Application health</h2><div id="app-health" class="admin-grid"></div></div>
+      <div class="admin-section"><h2>Provider configuration</h2><div id="provider-status" class="admin-grid"></div></div>
+      <div class="admin-section"><h2>Search statistics</h2><div id="metrics" class="admin-grid"></div></div>
+      <div class="admin-section"><h2>Rate limiting</h2><div id="rate-limit" class="admin-grid"></div></div>
+      <div class="admin-section"><h2>Provider latency</h2><div id="latency" class="admin-grid"></div></div>
+      <div class="admin-section"><h2>Recent provider errors</h2><div id="recent-errors" class="admin-grid"></div></div>
+    </section>
+  </main>
+</body>
+</html>
